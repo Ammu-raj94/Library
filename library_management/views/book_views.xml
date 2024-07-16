@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<odoo>
+    <!--    Form view for Book-->
+    <record id="book_view_form" model="ir.ui.view">
+        <field name="name">book.view.form</field>
+        <field name="model">book</field>
+        <field name="arch" type="xml">
+            <form string="Book">
+                <sheet>
+                    <group col="2">
+                        <group col="2">
+                            <field name="name"/>
+                            <field name="author"/>
+                        </group>
+                        <group col="2">
+                            <field name="publication_date"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!--    Tree view for book-->
+    <record id="book_view_tree" model="ir.ui.view">
+        <field name="name">book.view.tree</field>
+        <field name="model">book</field>
+        <field name="arch" type="xml">
+            <tree string="Book">
+                <field name="name"/>
+                <field name="author"/>
+                <field name="publication_date"/>
+            </tree>
+        </field>
+    </record>
+    <!--    Menu for Book-->
+    <record id="book_action" model="ir.actions.act_window">
+        <field name="name">Book</field>
+        <field name="res_model">book</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <!--    Menu Items-->
+    <menuitem id="menu_library_management"
+              name="Library"
+              sequence="1"/>
+    <menuitem id="menu_library"
+              parent="menu_library_management"
+              name="Library"
+        sequence="2"/>
+    <menuitem id="menu_book" name="Book"
+              parent="menu_library"
+              action="book_action"/>
+</odoo>

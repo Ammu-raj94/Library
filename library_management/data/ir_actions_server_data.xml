@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<odoo>
+<!--Cron action for send Email to the Customer when Confirm sale order-->
+	<data noupdate="1">
+        <record id="ir_cron_send_sale_order_email" model="ir.actions.server">
+            <field name="name">Send Sale Order Email</field>
+            <field name="model_id" ref="sale.model_sale_order"/>
+            <field name="state">code</field>
+            <field name="code">model.action_confirm()</field>
+        </record>
+    </data>
+</odoo>
